@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enquire | Chestnut Hill Eco Resort</title>
+  <meta name="description" content="Ask Chestnut Hill Eco Resort about rooms, airport pickup, and workshops. Phone 081 822 2110.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,460;9..144,560&family=Outfit:wght@380;560&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">
+          <strong>Chestnut Hill</strong>
+          <span>Eco Resort</span>
+        </span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" class="nav-links" aria-label="Primary">
+        <a href="stay.html">Stay</a>
+        <a href="experiences.html">Experiences</a>
+        <a href="eco.html">Eco living</a>
+        <a href="visit.html">Visit</a>
+        <a class="nav-cta" href="contact.html" aria-current="page">Enquire</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="page-hero" style="--hero: url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1800&q=80')">
+      <div class="wrap">
+        <p class="eyebrow">Reservations</p>
+        <h1>Tell us how we can host you.</h1>
+        <p class="lede">A stay is confirmed by the resort, not by this page. The form opens an email to the office.</p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="wrap grid-2">
+        <form id="enquiry" class="form panel" style="padding: 28px" novalidate>
+          <div class="form-row">
+            <label>Name
+              <input name="name" autocomplete="name" required>
+            </label>
+            <label>Email
+              <input name="email" type="email" autocomplete="email" required>
+            </label>
+          </div>
+          <div class="form-row">
+            <label>Phone
+              <input name="phone" type="tel" autocomplete="tel">
+            </label>
+            <label>Guests
+              <input name="guests" inputmode="numeric" placeholder="2">
+            </label>
+          </div>
+          <div class="form-row">
+            <label>Arrival
+              <input name="arrival" type="date">
+            </label>
+            <label>Departure
+              <input name="departure" type="date">
+            </label>
+          </div>
+          <label>Interest
+            <select name="room">
+              <option value="Cottage">Wooden cottage</option>
+              <option value="Twin room">Twin room</option>
+              <option value="Dormitory">Dormitory</option>
+              <option value="Group or retreat">Group or retreat</option>
+              <option value="Day visit">Day visit</option>
+            </select>
+          </label>
+          <label>Note
+            <textarea name="message" rows="5" required placeholder="Dates, airport pickup, meals, or a workshop."></textarea>
+          </label>
+          <button class="btn btn-pine" type="submit">Email the resort</button>
+          <p id="form-status" class="form-status" role="status"></p>
+          <p class="note">You can also write directly to <a href="mailto:chestnuthilleco@gmail.com">chestnuthilleco@gmail.com</a> or <a href="mailto:info@chestnuthilleco.com">info@chestnuthilleco.com</a>.</p>
+        </form>
+        <div>
+          <h2>Call the hill</h2>
+          <p><a href="tel:+66818222110">081 822 2110</a><br><a href="tel:+66813287132">081 328 7132</a></p>
+          <p>Deposits are often half the stay, paid to Chestnut Hill Eco Co., Ltd. at Bangkok Bank, Central Festival Hat Yai branch.</p>
+          <p>Account 641 7 07562 6<br>Swift BKKBTHBK</p>
+          <p class="note">Cards accepted at the resort include Visa, Mastercard, JCB, and UnionPay. Online card payments on the old site went through PayPal. Prices can change; confirm the figure with the office before you transfer.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div>
+        <h2>Chestnut Hill Eco Resort</h2>
+        <p>174/3 Moo 5, Ban Thung Chang<br>Tambon Phatong, Hat Yai<br>Songkhla 90230, Thailand</p>
+      </div>
+      <div>
+        <p><a href="tel:+66818222110">081 822 2110</a><br><a href="tel:+66813287132">081 328 7132</a></p>
+        <p><a href="mailto:chestnuthilleco@gmail.com">chestnuthilleco@gmail.com</a></p>
+      </div>
+      <ul>
+        <li><a href="stay.html">Stay</a></li>
+        <li><a href="visit.html">Visit</a></li>
+        <li><a href="https://facebook.com/chestnuthilleco">Facebook</a></li>
+      </ul>
+    </div>
+    <div class="wrap legal">© <span data-year>2026</span> Chestnut Hill Eco Co., Ltd.</div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
