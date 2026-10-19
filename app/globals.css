@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f6f1e6;
+  --color-linen: #ece4d2;
+  --color-moss: #546a3c;
+  --color-moss-deep: #3d4f2b;
+  --color-ink: #2f2a22;
+  --color-muted: #4a453c;
+  --color-clay: #a4553a;
+  --color-line: #d0c6b0;
+  --font-display: var(--font-mali), "Mali", serif;
+  --font-sans: var(--font-anuphan), "Anuphan", sans-serif;
+  --shadow-soft: 0 10px 30px rgba(47, 42, 34, 0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-moss);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+p,
+li,
+dd,
+address {
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+}
+
+.archive-body {
+  color: var(--color-ink);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.archive-body :where(font, span, strong, em, u) {
+  color: inherit !important;
+  font-family: inherit !important;
+}
+
+.archive-body :where(p, ul, ol) {
+  margin: 0.95rem 0;
+}
+
+.archive-body :where(ul, ol) {
+  padding-left: 1.25rem;
+}
+
+.archive-body a {
+  color: var(--color-moss-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.archive-body a:hover {
+  color: var(--color-clay);
+}
+
+.archive-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

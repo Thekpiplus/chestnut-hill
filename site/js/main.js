@@ -34,8 +34,11 @@ if (form && status) {
     const room = String(data.get("room") || "").trim();
     const message = String(data.get("message") || "").trim();
 
+    const thai = document.documentElement.lang === "th";
     if (!name || !email || !message) {
-      status.textContent = "Add your name, email, and a short note so we can reply.";
+      status.textContent = thai
+        ? "กรอกชื่อ อีเมล และข้อความสั้นๆ เพื่อให้เราตอบกลับได้"
+        : "Add your name, email, and a short note so we can reply.";
       return;
     }
 
@@ -55,7 +58,9 @@ if (form && status) {
       "Stay enquiry from Chestnut Hill website"
     )}&body=${encodeURIComponent(body)}`;
 
-    status.textContent = "Opening your email app with this enquiry.";
+    status.textContent = thai
+      ? "กำลังเปิดแอปอีเมลพร้อมคำขอนี้"
+      : "Opening your email app with this enquiry.";
     window.location.href = mailto;
   });
 }
