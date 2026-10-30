@@ -1,22 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Anuphan, Mali } from "next/font/google";
+import "@fontsource/anuphan/latin-400.css";
+import "@fontsource/anuphan/latin-500.css";
+import "@fontsource/anuphan/latin-600.css";
+import "@fontsource/anuphan/thai-400.css";
+import "@fontsource/anuphan/thai-500.css";
+import "@fontsource/anuphan/thai-600.css";
+import "@fontsource/mali/latin-600.css";
+import "@fontsource/mali/thai-600.css";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/content/site";
 import "./globals.css";
-
-const mali = Mali({
-  weight: "600",
-  subsets: ["latin", "thai"],
-  variable: "--font-mali",
-  display: "swap",
-});
-
-const anuphan = Anuphan({
-  weight: ["400", "500", "600"],
-  subsets: ["latin", "thai"],
-  variable: "--font-anuphan",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),
@@ -47,7 +40,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="th" className={`${mali.variable} ${anuphan.variable}`} suppressHydrationWarning>
+    <html lang="th" suppressHydrationWarning>
       <body className="bg-paper font-sans text-ink antialiased">
         <script
           dangerouslySetInnerHTML={{

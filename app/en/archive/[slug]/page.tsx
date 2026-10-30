@@ -3,8 +3,12 @@ import { ArchiveArticleView } from "@/components/views";
 import { listSlugs, readArchive } from "@/lib/archive";
 import { archiveMeta } from "@/lib/seo";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return listSlugs().map((slug) => ({ slug }));
+  return listSlugs()
+    .filter((slug) => readArchive("en", slug))
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

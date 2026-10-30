@@ -82,9 +82,24 @@ export const experienceGroups = [
 
 /** Thai is the default locale at the root. English lives under /en. */
 export function withLang(lang: Lang, path: string) {
-  if (lang === "th") return path;
-  if (path === "/") return "/en";
-  return `/en${path}`;
+  const [pathname, hash = ""] = path.split("#");
+  const bare = pathname.replace(/\/+$/, "") || "/";
+  const localized = lang === "en" ? (bare === "/" ? "/en" : `/en${bare}`) : bare;
+  const slashed = localized === "/" ? "/" : `${localized}/`;
+  return hash ? `${slashed}#${hash}` : slashed;
+}
+
+export function pathKey(pathname: string) {
+  const bare = pathname.split("#")[0]?.replace(/\/+$/, "") || "/";
+  return bare === "" ? "/" : bare;
+}
+
+/** Match a static URL, including directory children such as /archive/slug/. */
+export function isActivePath(pathname: string, href: string, exact = false) {
+  const current = pathKey(pathname);
+  const target = pathKey(href);
+  if (exact || target === "/" || target === "/en") return current === target;
+  return current === target || current.startsWith(`${target}/`);
 }
 
 export function destinationFor(lang: Lang, slug: string) {
@@ -93,8 +108,10 @@ export function destinationFor(lang: Lang, slug: string) {
 }
 
 export function swapLang(pathname: string, target: Lang) {
-  const bare = pathname.replace(/^\/en(?=\/|$)/, "") || "/";
-  return withLang(target, bare);
+  const [pathnameOnly, hash = ""] = pathname.split("#");
+  const withoutLang = pathnameOnly.replace(/^\/en(?=\/|$)/, "") || "/";
+  const next = withLang(target, withoutLang);
+  return hash ? `${next.split("#")[0]}#${hash}` : next;
 }
 
 export function langFromPath(pathname: string): Lang {

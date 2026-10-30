@@ -9,8 +9,8 @@
   --color-muted: #4a453c;
   --color-clay: #a4553a;
   --color-line: #d0c6b0;
-  --font-display: var(--font-mali), "Mali", serif;
-  --font-sans: var(--font-anuphan), "Anuphan", sans-serif;
+  --font-display: "Mali", serif;
+  --font-sans: "Anuphan", sans-serif;
   --shadow-soft: 0 10px 30px rgba(47, 42, 34, 0.06);
 }
 

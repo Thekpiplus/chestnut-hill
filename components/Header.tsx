@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { copy, navItems } from "@/content/site";
-import { swapLang, withLang, type Lang } from "@/lib/routes";
+import { isActivePath, swapLang, withLang, type Lang } from "@/lib/routes";
 
 export function Header({ lang }: { lang: Lang }) {
   const pathname = usePathname();
@@ -20,7 +20,7 @@ export function Header({ lang }: { lang: Lang }) {
   const stay = `${withLang(lang, "/accommodation")}#stay`;
 
   const linkClass = (href: string) => {
-    const active = href === home ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
+    const active = isActivePath(pathname, href, href === home);
     return `rounded-md px-1 py-1 text-sm transition-colors duration-200 ${
       active ? "text-paper underline decoration-paper/70 underline-offset-8" : "text-paper/85 hover:text-paper"
     }`;
@@ -93,7 +93,7 @@ export function Header({ lang }: { lang: Lang }) {
               const href = withLang(lang, item.path);
               return (
                 <li key={item.key}>
-                  <Link href={href} className="block py-1 text-base text-paper" aria-current={pathname === href ? "page" : undefined}>
+                  <Link href={href} className="block py-1 text-base text-paper" aria-current={isActivePath(pathname, href, href === home) ? "page" : undefined}>
                     {text.nav[item.key]}
                   </Link>
                 </li>

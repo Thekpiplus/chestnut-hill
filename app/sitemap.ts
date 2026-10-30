@@ -3,6 +3,8 @@ import { site } from "@/content/site";
 import { listSlugs } from "@/lib/archive";
 import { pagePaths, sectionForSlug, withLang, type PageKey } from "@/lib/routes";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   const pages = (Object.keys(pagePaths) as PageKey[]).flatMap((key) => {
@@ -42,8 +44,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const archive = listSlugs()
     .filter((slug) => !sectionForSlug[slug])
     .flatMap((slug) => {
-      const th = `${site.domain}/archive/${slug}`;
-      const en = `${site.domain}/en/archive/${slug}`;
+      const th = `${site.domain}${withLang("th", `/archive/${slug}`)}`;
+      const en = `${site.domain}${withLang("en", `/archive/${slug}`)}`;
       const languages = { th, en, "x-default": th };
       return [
         {
